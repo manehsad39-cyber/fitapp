@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { foodLabel } from '../lib/foodEmoji'
 import { useNavigate, useParams } from 'react-router'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type Food, type SavedMeal } from '../db/db'
@@ -58,9 +59,11 @@ export default function SavedMealEditScreen() {
         <h2>Items</h2>
         <p className="muted small">Grams in each food’s base state (raw, dry or as is).</p>
         <ul className="item-list">
-          {meal.items.map((it, i) => (
+          {meal.items.map((it, i) => {
+            const name = foods.get(it.foodId)?.name
+            return (
             <li key={`${i}-${it.foodId}-${it.grams}`}>
-              <span className="item-main">{foods.get(it.foodId)?.name ?? 'Unknown food'}</span>
+              <span className="item-main">{name ? foodLabel(name) : 'Unknown food'}</span>
               <GramsInput
                 grams={it.grams}
                 onCommit={(g) => setItems(meal.items.map((x, j) => (j === i ? { ...x, grams: g } : x)))}
@@ -69,7 +72,8 @@ export default function SavedMealEditScreen() {
                 ✕
               </button>
             </li>
-          ))}
+            )
+          })}
           {meal.items.length === 0 && <li className="muted empty">No items yet.</li>}
         </ul>
         <p className="preview">

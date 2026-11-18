@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { foodLabel } from '../lib/foodEmoji'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 import { db, type SavedMeal } from '../db/db'
 import { fmtInt } from '../lib/format'
@@ -59,7 +60,7 @@ function FoodList() {
           <li key={f.id}>
             <Link to={`/n/foods/food/${f.id}`}>
               <span>
-                {f.name}
+                {foodLabel(f.name)}
                 {!f.builtin && <span className="tag">custom</span>}
               </span>
               <span className="muted small">{fmtInt(f.per100.kcal)} kcal/100 g</span>
@@ -94,7 +95,7 @@ function SavedMealList() {
         {meals.map((m) => (
           <li key={m.id}>
             <Link to={`/n/foods/saved/${m.id}`}>
-              <span>{m.name}</span>
+              <span>🍱 {m.name}</span>
               <span className="muted small">
                 {m.items.length} items · {fmtInt(itemsTotals(savedMealItems(m, 1), foods).kcal)} kcal
               </span>

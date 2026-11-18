@@ -70,6 +70,8 @@ Ambiguities resolved with the simplest option:
 - **Stats periods** end today: Day = today, 7 days = today and the 6 days before it, 30 days likewise. Averages divide by logged days only. Today counts once it has a meal.
 - **Progress bars** fill up to 100% and stop there; the percentage shows the real value. All bars use the theme accent, with no good/bad colors.
 
+- **Food emojis** (added on request after Phase 3): every food name is shown with an emoji, e.g. "🥚 Egg (whole)". The emoji is picked from keywords in the name (`src/lib/foodEmoji.ts`), so custom foods get one too (e.g. "banana" → 🍌). Foods with no matching keyword get 🍽️. Nothing is stored, so renaming a food updates its emoji. Saved meals show 🍱.
+
 ### Gym (Phase 3)
 
 - **Exercise types:** Lat pulldown ("machine/cable" in the spec) is seeded as **cable**. Treadmill run is type **cardio** and uses a run form (minutes, seconds, km, incline %) instead of sets.

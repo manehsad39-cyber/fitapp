@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { foodLabel } from '../lib/foodEmoji'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type Food, type SavedMeal } from '../db/db'
 import { frequentFoodIds, recentFoodIds, searchByName } from '../lib/search'
@@ -46,7 +47,7 @@ export default function FoodSearch({ onPickFood, onPickSaved, autoFocus }: Props
           {savedHits.map((m) => (
             <li key={`m${m.id}`}>
               <button onClick={() => onPickSaved?.(m)}>
-                <span>{m.name}</span>
+                <span>🍱 {m.name}</span>
                 <span className="tag">saved meal</span>
               </button>
             </li>
@@ -89,7 +90,7 @@ function FoodRow({ food, onPick }: { food: Food; onPick: (f: Food) => void }) {
   return (
     <li>
       <button onClick={() => onPick(food)}>
-        <span>{food.name}</span>
+        <span>{foodLabel(food.name)}</span>
         <span className="muted small">{fmtInt(food.per100.kcal)} kcal/100 g</span>
       </button>
     </li>

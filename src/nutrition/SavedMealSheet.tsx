@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { foodLabel } from '../lib/foodEmoji'
 import type { MealItem, SavedMeal } from '../db/db'
 import { parseNum } from '../lib/format'
 import { itemsTotals, type FoodsById } from '../lib/totals'
 import Sheet from '../shell/Sheet'
 import NumInput from '../shell/NumInput'
 import MacroLine from './MacroLine'
+
+const foodLabelOf = (name?: string) => (name ? foodLabel(name) : 'Unknown food')
 
 /** Turns a saved meal into basket items, scaled by a multiplier. */
 export function savedMealItems(meal: SavedMeal, multiplier: number): MealItem[] {
@@ -30,7 +33,7 @@ export default function SavedMealSheet({ meal, foods, onConfirm, onClose }: Prop
   const items = m !== null && m > 0 ? savedMealItems(meal, m) : null
 
   return (
-    <Sheet title={meal.name} onClose={onClose}>
+    <Sheet title={`🍱 ${meal.name}`} onClose={onClose}>
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -45,7 +48,7 @@ export default function SavedMealSheet({ meal, foods, onConfirm, onClose }: Prop
         <ul className="plain-list small">
           {meal.items.map((it, i) => (
             <li key={i}>
-              {foods.get(it.foodId)?.name ?? 'Unknown food'}: {Math.round(it.grams * (m ?? 0))} g
+              {foodLabelOf(foods.get(it.foodId)?.name)}: {Math.round(it.grams * (m ?? 0))} g
             </li>
           ))}
         </ul>

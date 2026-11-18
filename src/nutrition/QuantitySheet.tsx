@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { foodLabel } from '../lib/foodEmoji'
 import type { Food, MealItem } from '../db/db'
 import { toMealItem } from '../lib/conversions'
 import { parseNum } from '../lib/format'
@@ -27,7 +28,7 @@ export default function QuantitySheet({ food, initial, confirmLabel, onConfirm, 
   const rawLabel = food.baseState === 'dry' ? 'dry' : 'raw'
 
   return (
-    <Sheet title={food.name} onClose={onClose}>
+    <Sheet title={foodLabel(food.name)} onClose={onClose}>
       <form
         onSubmit={(e) => {
           e.preventDefault()
