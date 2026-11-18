@@ -66,6 +66,8 @@ export interface Workout {
   id: number
   startedAt: number
   finishedAt?: number
+  /** Exercises in this workout, in display order. */
+  exerciseIds: number[]
 }
 
 export interface WorkoutSet {

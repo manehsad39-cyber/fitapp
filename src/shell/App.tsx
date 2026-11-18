@@ -9,7 +9,14 @@ import StatsScreen from '../nutrition/StatsScreen'
 import FoodsScreen from '../nutrition/FoodsScreen'
 import FoodEditScreen from '../nutrition/FoodEditScreen'
 import SavedMealEditScreen from '../nutrition/SavedMealEditScreen'
-import { ExercisesScreen, HistoryScreen, RoutinesScreen, WorkoutScreen } from '../gym/screens'
+import WorkoutScreen from '../gym/WorkoutScreen'
+import HistoryScreen from '../gym/HistoryScreen'
+import WorkoutSummaryScreen from '../gym/WorkoutSummaryScreen'
+import ExercisesScreen from '../gym/ExercisesScreen'
+import ExerciseProgressScreen from '../gym/ExerciseProgressScreen'
+import ExerciseEditScreen from '../gym/ExerciseEditScreen'
+import RoutinesScreen from '../gym/RoutinesScreen'
+import RoutineEditScreen from '../gym/RoutineEditScreen'
 
 export default function App() {
   return (
@@ -27,6 +34,10 @@ export default function App() {
           <Route path="/g/history" element={<HistoryScreen />} />
           <Route path="/g/exercises" element={<ExercisesScreen />} />
           <Route path="/g/routines" element={<RoutinesScreen />} />
+          <Route path="/g/history/:id" element={<WorkoutSummaryScreen />} />
+          <Route path="/g/exercises/:id" element={<ExerciseProgressScreen />} />
+          <Route path="/g/exercises/edit/:id" element={<ExerciseEditScreen />} />
+          <Route path="/g/routines/:id" element={<RoutineEditScreen />} />
           <Route path="/settings" element={<SettingsScreen />} />
           <Route path="*" element={<Navigate to={MODE_HOME[loadMode()]} replace />} />
         </Route>

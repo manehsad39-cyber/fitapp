@@ -596,3 +596,187 @@ input.search-input {
   fill: var(--muted);
   font-size: 10px;
 }
+
+/* ---------- Phase 3: Gym ---------- */
+.link-head {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.suggestion {
+  margin: 6px 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+
+.set-list {
+  margin: 8px 0;
+  padding-left: 1.4em;
+}
+
+.set-list li > button {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  min-height: 44px;
+  font: inherit;
+  color: var(--text);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  padding: 4px 0;
+}
+
+.set-input {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.set-input label,
+.run-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.set-input input,
+.run-grid input {
+  width: 100%;
+}
+
+.run-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.badge.pr {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.badge.baseline {
+  border: 1px solid var(--muted);
+  color: var(--muted);
+}
+
+.badge.fresh {
+  animation: pr-pop 1.2s ease-out;
+}
+
+@keyframes pr-pop {
+  0% {
+    transform: scale(0.4);
+    box-shadow: 0 0 0 0 var(--accent);
+  }
+  30% {
+    transform: scale(1.35);
+    box-shadow: 0 0 18px 6px var(--accent);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.badge-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  padding: 3px 0;
+}
+
+.session-ex {
+  margin: 8px 0;
+}
+
+.big-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.table th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.chart-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.chart-dot {
+  fill: var(--accent);
+}
+
+.chart-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+/* Rest timer: sits just above the bottom navigation */
+.rest-bar {
+  position: fixed;
+  left: 8px;
+  right: 8px;
+  bottom: calc(68px + env(safe-area-inset-bottom));
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--surface-2);
+  border: 2px solid var(--accent);
+  border-radius: 14px;
+}
+
+.rest-label {
+  color: var(--muted);
+}
+
+.rest-time {
+  flex: 1;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Leave room for the rest timer bar in Gym mode */
+:root[data-mode='gym'] .content {
+  padding-bottom: calc(150px + env(safe-area-inset-bottom));
+}

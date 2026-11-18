@@ -69,3 +69,18 @@ Ambiguities resolved with the simplest option:
 - **Delete vs archive:** a food used in any logged or saved meal can only be archived. Archived foods are hidden from search and listed under "Show archived foods" in Foods, where they can be unarchived. Unused foods (including built-in ones) can be deleted.
 - **Stats periods** end today: Day = today, 7 days = today and the 6 days before it, 30 days likewise. Averages divide by logged days only. Today counts once it has a meal.
 - **Progress bars** fill up to 100% and stop there; the percentage shows the real value. All bars use the theme accent, with no good/bad colors.
+
+### Gym (Phase 3)
+
+- **Exercise types:** Lat pulldown ("machine/cable" in the spec) is seeded as **cable**. Treadmill run is type **cardio** and uses a run form (minutes, seconds, km, incline %) instead of sets.
+- **One workout at a time.** It stays "in progress" until you tap Finish, even if you close the app. Finishing a workout with no sets and no runs discards it instead of saving an empty session.
+- **Exercises in a workout** come from the routine (archived ones are skipped) or "+ Add exercise". An exercise card can be removed until a set is logged on it.
+- **Last session** = the most recent *earlier* workout containing that exercise (never the current one). The suggestion uses it. "lastWeight" in the rules is the heaviest weight of that session. In the "below range" rule, the e1RM used is the session's best.
+- **Set input** pre-fills once: with the previous set of this workout if there is one, else with the suggested weight. Reps start empty for the first set.
+- **PR badges** are computed live from all history, so editing or deleting a set updates every badge. "Baseline" goes on the very first set ever logged for an exercise. The highlight animation plays only when a PR set was logged in the last few seconds.
+- **Run PRs:** the first run ever is the baseline. Distance PR = strictly longer than every earlier run. Pace PR = strictly faster than every earlier run of 1 km or more, and only runs of 1 km or more can get it. The first run of 1 km or more after the baseline sets the pace reference without a badge.
+- **Workout summary** opens after Finish and when you tap a session in History (`#/g/history/<id>`).
+- **Rest timer** is shown as a bar above the bottom navigation, on every screen, so it keeps running if you switch tabs. It vibrates only if the countdown ends while the app is open. When disabled in Settings it never starts and nothing is shown.
+- **Wake lock** is held while a workout is in progress and the app is visible, and taken again when you come back to the app. Browsers without the Wake Lock API simply skip it.
+- **Editing exercises:** name, type, increment and rep range are editable. An existing exercise cannot switch between strength and cardio. Exercises are archived, never deleted.
+- **Not included** (not in the spec, listed in IDEAS.md): deleting a finished workout, editing sets of a finished workout.

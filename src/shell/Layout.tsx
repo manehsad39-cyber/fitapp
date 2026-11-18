@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
+import GymEffects from '../gym/GymEffects'
 import { applyTheme, loadMode, MODE_HOME, modeFromPath, saveMode, type Mode } from './mode'
 
 const NAV: Record<Mode, { to: string; label: string }[]> = {
@@ -63,6 +64,8 @@ export default function Layout() {
       <main className="content">
         <Outlet />
       </main>
+
+      <GymEffects />
 
       <nav className="bottomnav">
         {NAV[mode].map((item) => (
