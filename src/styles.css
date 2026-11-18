@@ -241,3 +241,358 @@ input:focus {
   color: var(--accent);
   background: color-mix(in srgb, var(--accent) 14%, transparent);
 }
+
+/* ---------- Phase 2: Nutrition ---------- */
+.small {
+  font-size: 0.875rem;
+}
+
+.grow {
+  flex: 1;
+}
+
+.block {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn:disabled,
+.icon-btn:disabled {
+  opacity: 0.4;
+}
+
+button.icon-btn {
+  font: inherit;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.card-head h1,
+.card-head h2 {
+  margin: 0;
+  flex: 1;
+}
+
+.screen .card-head h1 {
+  font-size: 1.3rem;
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.row > input[type='date'],
+.row > input[type='time'] {
+  flex: 1;
+}
+
+input[type='date'],
+input[type='time'],
+select,
+input.text-input {
+  font: inherit;
+  font-size: 16px;
+  min-height: 44px;
+  padding: 8px 10px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color-scheme: dark;
+}
+
+input.text-input {
+  width: 60%;
+  text-align: left;
+}
+
+/* Segmented control (tabs, unit toggles) */
+.seg {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 3px;
+}
+
+.seg.wide {
+  display: flex;
+  width: 100%;
+  margin: 4px 0 12px;
+}
+
+.seg button {
+  flex: 1;
+  min-height: 40px;
+  min-width: 64px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+}
+
+.seg button.active {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Stats rows and neutral bars */
+.stat-row {
+  margin: 10px 0;
+}
+
+.stat-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.stat-head.big {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+.statement {
+  margin: 8px 0 4px;
+  font-weight: 600;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+details.card summary {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* Day picker */
+.day-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.day-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+/* Lists */
+.plain-list {
+  list-style: none;
+  margin: 4px 0;
+  padding: 0;
+}
+
+.journal,
+.item-list,
+.result-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.journal li > button,
+.result-list li > button,
+.result-list li > a {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: var(--text);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 2px;
+  text-decoration: none;
+}
+
+.result-list li > button,
+.result-list li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+}
+
+.journal-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.macro-line {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.item-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  padding: 6px 0;
+}
+
+.item-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  font: inherit;
+  color: var(--text);
+  background: none;
+  border: 0;
+  padding: 4px 0;
+  min-height: 44px;
+  justify-content: center;
+}
+
+.empty {
+  padding: 12px 2px;
+}
+
+.list-title {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 14px 0 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tag {
+  font-size: 0.75rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 1px 6px;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+input.search-input {
+  width: 100%;
+  text-align: left;
+}
+
+.food-search {
+  margin-top: 4px;
+}
+
+.preview {
+  margin: 10px 0;
+}
+
+/* Bottom sheet */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: flex-end;
+}
+
+.sheet {
+  width: 100%;
+  max-height: 90dvh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-top: 2px solid var(--accent);
+  border-radius: 18px 18px 0 0;
+  padding: 12px 16px calc(16px + env(safe-area-inset-bottom));
+}
+
+.sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sheet-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.qty-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 10px;
+}
+
+.qty-input {
+  flex: 1;
+  font-size: 1.4rem !important;
+}
+
+/* Chart */
+.chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-bar {
+  fill: var(--accent);
+}
+
+.chart-target {
+  stroke: var(--text);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  opacity: 0.7;
+}
+
+.chart-label {
+  fill: var(--muted);
+  font-size: 10px;
+}
